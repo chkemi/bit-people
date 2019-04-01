@@ -5,6 +5,7 @@ import { UserCard } from "./UserCard";
 import './loading.css'
 import Search from "./buttons/Search";
 import LoadingAnimation from "./LoadingAnimation";
+import FailedSearch from "./FailedSearch";
 
 class HomePage extends Component {
     constructor(props) {
@@ -25,19 +26,21 @@ class HomePage extends Component {
 
         const ListItems = this.state.users.filter((user) => {
             return user.getFullName().toLowerCase().includes(this.props.inputValue)
-        }).map((user, index) => {
-            return (
-                <ListItem key={index} className='row' src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
-            )
         })
+            .map((user, index) => {
+                return (
+                    <ListItem key={index} className='row' src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
+                )
+            })
 
         const GridItems = this.state.users.filter((user) => {
             return user.getFullName().toLowerCase().includes(this.props.inputValue)
-        }).map((user, index) => {
-            return (
-                <UserCard key={index} src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
-            )
         })
+            .map((user, index) => {
+                return (
+                    <UserCard key={index} src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
+                )
+            })
 
         if (!this.state.users.length) {
             return <LoadingAnimation />
@@ -47,7 +50,7 @@ class HomePage extends Component {
             return (
                 <>
                     <Search search={this.props.search} />
-                    {ListItems}
+                    {ListItems.length > 0 ? ListItems : <FailedSearch />}
                 </>
             )
         }
@@ -56,7 +59,7 @@ class HomePage extends Component {
             return (
                 <>
                     <Search search={this.props.search} />
-                    {GridItems}
+                    {GridItems > 0 ? GridItems : <FailedSearch />}
                 </>
             )
         }
