@@ -9,8 +9,8 @@ class User {
         this.birthday = `${new Date(birthday).toLocaleDateString()}`;
     }
 
-    getBirthday() {
-        return this.birthday
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
     }
 }
 

@@ -24,7 +24,7 @@ class HomePage extends Component {
     render() {
 
         const ListItems = this.state.users.filter((user) => {
-            return user.firstName.toLowerCase().includes(this.props.inputValue)
+            return user.getFullName().toLowerCase().includes(this.props.inputValue)
         }).map((user, index) => {
             return (
                 <ListItem key={index} className='row' src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
@@ -32,7 +32,7 @@ class HomePage extends Component {
         })
 
         const GridItems = this.state.users.filter((user) => {
-            return user.firstName.toLowerCase().includes(this.props.inputValue)
+            return user.getFullName().toLowerCase().includes(this.props.inputValue)
         }).map((user, index) => {
             return (
                 <UserCard key={index} src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
