@@ -15,10 +15,14 @@ class App extends Component {
     this.setState({ isToggleOn: !this.state.isToggleOn });
   }
 
+  reload = () => {
+    window.location.reload();
+  }
+
   render() {
     return (
       <>
-        <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} />
+        <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} reload={this.reload} />
         <main className='row'>
           <HomePage layout={this.state.isToggleOn ? 'grid' : 'list'} />
         </main>
