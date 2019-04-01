@@ -18,8 +18,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header isToggleOn={this.onLayoutSwitch} />
-        <main>
+        <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} />
+        <main className='row'>
           <HomePage layout={this.state.isToggleOn ? 'grid' : 'list'} />
         </main>
         <Footer />
