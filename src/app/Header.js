@@ -11,9 +11,9 @@ class Header extends Component {
     render() {
         return (
             <nav>
-                <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo">Bit Persons</a>
-                    <ul class="right">
+                <div className="nav-wrapper">
+                    <a href="#!" className="brand-logo">Bit Persons</a>
+                    <ul className="right">
                         <SwitchLayout onLayoutSwitch={this.props.onLayoutSwitch} isToggleOn={this.props.isToggleOn} />
                         <Reload reload={this.props.reload} />
                     </ul>

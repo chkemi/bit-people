@@ -6,13 +6,19 @@ import Footer from './Footer';
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      isToggleOn: false
+      isToggleOn: JSON.parse(localStorage.getItem('grid')),
     }
   }
 
   onLayoutSwitch = () => {
-    this.setState({ isToggleOn: !this.state.isToggleOn });
+    this.setState((prevState) => {
+      return {
+        isToggleOn: !prevState.isToggleOn
+      }
+    });
+    localStorage.setItem('grid', !this.state.isToggleOn);
   }
 
   reload = () => {

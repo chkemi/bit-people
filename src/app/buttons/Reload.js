@@ -8,7 +8,7 @@ class Reload extends Component {
     render() {
         return (
             <button onClick={this.props.reload}>
-                <i class="fas fa-redo"></i>
+                <i className="fas fa-redo"></i>
             </button >
         );
     }

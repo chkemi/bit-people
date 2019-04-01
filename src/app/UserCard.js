@@ -8,7 +8,7 @@ class UserCard extends Component {
     }
     render() {
         return (
-            <div className="col s4" key={this.props.key}>
+            <div className="col s4">
                 <div className="col s12">
                     <div className="card">
                         <div className="card-image">

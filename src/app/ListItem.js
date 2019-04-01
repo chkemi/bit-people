@@ -8,14 +8,14 @@ class ListItem extends Component {
     }
     render() {
         return (
-            <li key={this.props.key} className='row'>
+            <li className='row'>
                 <div className='col s2'>
                     <img src={this.props.src} alt='User'></img>
                 </div>
                 <div className='col s10'>
                     <p>{this.props.fullName}</p>
                     <p><i className="fas fa-envelope"></i>{this.props.email}</p>
-                    <p><i class="fas fa-birthday-cake"></i>{this.props.birthday}</p>
+                    <p><i className="fas fa-birthday-cake"></i>{this.props.birthday}</p>
                 </div>
             </li>
         );
