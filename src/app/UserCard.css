@@ -18,6 +18,6 @@ main:first-child {
     border: 1px red solid;
 }
 
-main > div {
+main > div.col {
     display: inline-block;
 }
