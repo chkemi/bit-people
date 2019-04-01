@@ -7,7 +7,9 @@ class Reload extends Component {
     }
     render() {
         return (
-            <button></button>
+            <button>
+                <i></i>
+            </button>
         );
     }
 }

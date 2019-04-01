@@ -8,13 +8,6 @@ class Header extends Component {
         this.state = {}
     }
     render() {
-        // return (
-        //     <header className='center-align'>
-        //         <h4>Bit Persons</h4>
-        //         <SwitchLayout onLayoutSwitch={this.props.onLayoutSwitch} isToggleOn={this.props.isToggleOn} />
-        //     </header>
-        // );
-
         return (
             <nav>
                 <div class="nav-wrapper">
