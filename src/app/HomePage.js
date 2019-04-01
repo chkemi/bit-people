@@ -17,9 +17,13 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-        fetchUsers().then((users) => this.setState({
-            users
-        }))
+
+        fetchUsers().then((users) => {
+            return this.setState({
+                users
+            })
+        })
+
     }
 
     render() {
@@ -59,7 +63,7 @@ class HomePage extends Component {
             return (
                 <>
                     <Search search={this.props.search} />
-                    {GridItems > 0 ? GridItems : <FailedSearch />}
+                    {GridItems.length > 0 ? GridItems : <FailedSearch />}
                 </>
             )
         }
