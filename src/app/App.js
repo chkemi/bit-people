@@ -3,8 +3,6 @@ import HomePage from './HomePage';
 import Header from './Header';
 import Footer from './Footer';
 
-import Search from './buttons/Search';
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -33,8 +31,7 @@ class App extends Component {
       <>
         <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} reload={() => { window.location.reload() }} />
         <main className='row'>
-          <Search search={this.getSearchValue} />
-          <HomePage inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} />
+          <HomePage inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} search={this.getSearchValue} />
         </main>
         <Footer />
       </>
