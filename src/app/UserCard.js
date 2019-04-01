@@ -10,7 +10,7 @@ class UserCard extends Component {
         return (
             <div className="col s4">
                 <div className="col s12">
-                    <div className="card">
+                    <div className={`card ${this.props.gender === 'female' ? 'red lighten-5' : ''}`}>
                         <div className="card-image">
                             <img src={this.props.src} alt='User card' />
                             <span className="card-title">{this.props.fullName}</span>

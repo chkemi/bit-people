@@ -10,7 +10,7 @@ class Header extends Component {
     }
     render() {
         return (
-            <nav>
+            <nav className='center'>
                 <div className="nav-wrapper">
                     <a href="#!" className="brand-logo">Bit Persons</a>
                     <ul className="right">

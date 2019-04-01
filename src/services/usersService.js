@@ -8,7 +8,7 @@ const fetchUsers = () => {
         })
         .then((data) => {
             return data.results.map((userElement, index) => {
-                return new User(index, userElement.picture.large, userElement.name.first, userElement.name.last, userElement.email, userElement.dob.date);
+                return new User(index, userElement.picture.large, userElement.name.first, userElement.name.last, userElement.gender, userElement.email, userElement.dob.date);
             })
         })
 }

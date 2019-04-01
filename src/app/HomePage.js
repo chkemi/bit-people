@@ -28,7 +28,7 @@ class HomePage extends Component {
         if (this.props.layout === 'list') {
             return this.state.users.map((user, index) => {
                 return (
-                    <ListItem key={index} className='row' src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} />
+                    <ListItem key={index} className='row' src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
                 )
             })
         }
@@ -36,7 +36,7 @@ class HomePage extends Component {
         if (this.props.layout === 'grid') {
             return this.state.users.map((user, index) => {
                 return (
-                    <UserCard key={index} src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} />
+                    <UserCard key={index} src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
                 )
             })
         }
