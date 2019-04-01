@@ -59,7 +59,7 @@ class HomePage extends Component {
             return (
                 <>
                     <Search search={this.props.search} />
-                    {GridItems > 0 ? GridItems : <FailedSearch />}
+                    {GridItems.length > 0 ? GridItems : <FailedSearch />}
                 </>
             )
         }
