@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Stats from '../Stats';
 
 class Search extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class Search extends Component {
                         <label className="label-icon" htmlFor="search"><i className="fas fa-search"></i></label>
                     </div>
                 </form>
+                <Stats maleUsers={this.props.maleUsers} />
             </div>
         );
     }

@@ -9,8 +9,6 @@ const reload = () => {
         .then((data) => {
             localStorage.setItem('users', JSON.stringify(data.results))
             localStorage.setItem('time', Date.now())
-
-            console.log(localStorage.getItem('time'));
             return JSON.parse(localStorage.getItem('users')).map((userElement, index) => {
                 return new User(index, userElement.picture.large, userElement.name.first, userElement.name.last, userElement.gender, userElement.email, userElement.dob.date);
             })

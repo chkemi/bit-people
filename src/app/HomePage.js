@@ -10,7 +10,10 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {}
+        this.state = {
+            male: [],
+            female: []
+        }
     }
 
     render() {
@@ -32,7 +35,7 @@ class HomePage extends Component {
 
             return (
                 <>
-                    <Search search={this.props.search} />
+                    <Search search={this.props.search} maleUsers={this.props.maleUsers} />
                     {ListItems.length > 0 ? ListItems : <FailedSearch />}
                 </>
             )
@@ -51,7 +54,7 @@ class HomePage extends Component {
 
             return (
                 <>
-                    <Search search={this.props.search} />
+                    <Search search={this.props.search} maleUsers={this.props.maleUsers} />
                     {GridItems.length > 0 ? GridItems : <FailedSearch />}
                 </>
             )
