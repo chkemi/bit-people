@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import HomePage from './HomePage';
 import Header from './Header';
 import Footer from './Footer';
+import { reload, fetchUsers } from '../services/usersService';
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +11,17 @@ class App extends Component {
     this.state = {
       isToggleOn: JSON.parse(localStorage.getItem('grid')),
       inputValue: '',
+      users: [],
+      time: Date.now()
     }
+  }
+
+  componentDidMount() {
+    fetchUsers().then((users) => {
+      this.setState({
+        users,
+      })
+    })
   }
 
   onLayoutSwitch = () => {
@@ -26,12 +37,21 @@ class App extends Component {
     this.setState({ inputValue: e.target.value });
   }
 
+  refresh = () => {
+    reload().then((users) => {
+      this.setState({
+        users,
+
+      })
+    })
+  }
+
   render() {
     return (
       <>
-        <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} reload={() => { window.location.reload() }} />
+        <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} reload={this.refresh} />
         <main className='row'>
-          <HomePage inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} search={this.getSearchValue} />
+          <HomePage users={this.state.users} inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} search={this.getSearchValue} reload={this.reload} />
         </main>
         <Footer />
       </>
