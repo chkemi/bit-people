@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Stats.css';
 
 class Stats extends Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class Stats extends Component {
     render() {
 
         return (
-            <p>Male: {this.props.maleUsers} Female: {this.props.femaleUsers}</p>
+            <p className='stats'>Male: {this.props.maleUsers} Female: {this.props.femaleUsers}</p>
         );
     }
 }
