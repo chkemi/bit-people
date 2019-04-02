@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { fetchUsers } from "../services/usersService";
 import ListItem from './ListItem';
 import { UserCard } from "./UserCard";
 import './loading.css'
@@ -11,47 +10,26 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            users: JSON.parse(localStorage.getItem('users')) || [],
-        }
-    }
-
-    componentDidMount() {
-        fetchUsers().then((users) => {
-            localStorage.setItem('users', JSON.stringify(users));
-
-            return this.setState({
-                users: JSON.parse(localStorage.getItem('users'))
-            })
-        })
-
+        this.state = {}
     }
 
     render() {
 
-        const ListItems = this.state.users.filter((user) => {
-            return user.fullName.toLowerCase().includes(this.props.inputValue)
-        })
-            .map((user, index) => {
-                return (
-                    <ListItem key={index} className='row' src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
-                )
-            })
-
-        const GridItems = this.state.users.filter((user) => {
-            return user.fullName.toLowerCase().includes(this.props.inputValue)
-        })
-            .map((user, index) => {
-                return (
-                    <UserCard key={index} src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
-                )
-            })
-
-        if (!this.state.users.length) {
+        if (!this.props.users.length) {
             return <LoadingAnimation />
         }
 
         if (this.props.layout === 'list') {
+
+            const ListItems = this.props.users.filter((user) => {
+                return user.fullName.toLowerCase().includes(this.props.inputValue)
+            })
+                .map((user, index) => {
+                    return (
+                        <ListItem key={index} className='row' src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
+                    )
+                })
+
             return (
                 <>
                     <Search search={this.props.search} />
@@ -61,6 +39,16 @@ class HomePage extends Component {
         }
 
         if (this.props.layout === 'grid') {
+
+            const GridItems = this.props.users.filter((user) => {
+                return user.fullName.toLowerCase().includes(this.props.inputValue)
+            })
+                .map((user, index) => {
+                    return (
+                        <UserCard key={index} src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
+                    )
+                })
+
             return (
                 <>
                     <Search search={this.props.search} />
