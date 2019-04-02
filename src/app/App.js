@@ -11,14 +11,15 @@ class App extends Component {
     this.state = {
       isToggleOn: JSON.parse(localStorage.getItem('grid')),
       inputValue: '',
-      users: []
+      users: [],
+      time: Date.now()
     }
   }
 
   componentDidMount() {
     fetchUsers().then((users) => {
       this.setState({
-        users
+        users,
       })
     })
   }
@@ -39,7 +40,8 @@ class App extends Component {
   refresh = () => {
     reload().then((users) => {
       this.setState({
-        users
+        users,
+
       })
     })
   }
