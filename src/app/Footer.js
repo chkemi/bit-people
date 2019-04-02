@@ -23,8 +23,13 @@ class Footer extends Component {
         }
 
         return (
-            <footer className='center-align'>
-                <p>{new Date().getFullYear()} Copyright BIT <span>Last update: {formattedTime}</span></p>
+            <footer className="page-footer">
+                <div className="footer-copyright">
+                    <div className="container">
+                        {new Date().getFullYear()} Copyright BIT
+                        <span className='right'>Last update: {formattedTime}</span>
+                    </div>
+                </div>
             </footer>
         );
     }
