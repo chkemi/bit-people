@@ -12,15 +12,16 @@ class HomePage extends Component {
         super(props);
 
         this.state = {
-            users: [],
+            users: JSON.parse(localStorage.getItem('users')) || [],
         }
     }
 
     componentDidMount() {
-
         fetchUsers().then((users) => {
+            localStorage.setItem('users', JSON.stringify(users));
+
             return this.setState({
-                users
+                users: JSON.parse(localStorage.getItem('users'))
             })
         })
 
@@ -29,7 +30,7 @@ class HomePage extends Component {
     render() {
 
         const ListItems = this.state.users.filter((user) => {
-            return user.getFullName().toLowerCase().includes(this.props.inputValue)
+            return user.fullName.toLowerCase().includes(this.props.inputValue)
         })
             .map((user, index) => {
                 return (
@@ -38,7 +39,7 @@ class HomePage extends Component {
             })
 
         const GridItems = this.state.users.filter((user) => {
-            return user.getFullName().toLowerCase().includes(this.props.inputValue)
+            return user.fullName.toLowerCase().includes(this.props.inputValue)
         })
             .map((user, index) => {
                 return (

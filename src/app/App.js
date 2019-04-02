@@ -26,10 +26,14 @@ class App extends Component {
     this.setState({ inputValue: e.target.value });
   }
 
+  reload = () => {
+    window.location.reload()
+  }
+
   render() {
     return (
       <>
-        <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} reload={() => { window.location.reload() }} />
+        <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} reload={this.reload} />
         <main className='row'>
           <HomePage inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} search={this.getSearchValue} />
         </main>
