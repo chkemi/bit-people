@@ -15,7 +15,7 @@ class Search extends Component {
                         <label className="label-icon" htmlFor="search"><i className="fas fa-search"></i></label>
                     </div>
                 </form>
-                <Stats maleUsers={this.props.maleUsers} />
+                <Stats maleUsers={this.props.maleUsers} femaleUsers={this.props.femaleUsers} />
             </div>
         );
     }

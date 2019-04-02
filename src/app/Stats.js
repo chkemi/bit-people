@@ -6,8 +6,9 @@ class Stats extends Component {
         this.state = {}
     }
     render() {
+
         return (
-            <p>Male: {this.props.maleUsers} Female: {15 - this.props.maleUsers}</p>
+            <p>Male: {this.props.maleUsers} Female: {this.props.femaleUsers}</p>
         );
     }
 }

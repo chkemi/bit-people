@@ -13,7 +13,6 @@ class App extends Component {
       inputValue: '',
       users: [],
       time: Date.now(),
-      maleUsers: []
     }
   }
 
@@ -21,9 +20,6 @@ class App extends Component {
     fetchUsers().then((users) => {
       this.setState({
         users,
-        maleUsers: users.filter((user) => {
-          return user.gender === 'male'
-        })
       })
     })
   }
@@ -38,16 +34,15 @@ class App extends Component {
   }
 
   getSearchValue = (e) => {
-    this.setState({ inputValue: e.target.value });
+    this.setState({
+      inputValue: e.target.value
+    });
   }
 
   refresh = () => {
     reload().then((users) => {
       this.setState({
         users,
-        maleUsers: users.filter((user) => {
-          return user.gender === 'male'
-        })
       })
     })
   }
@@ -57,7 +52,7 @@ class App extends Component {
       <>
         <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} reload={this.refresh} />
         <main className='row'>
-          <HomePage maleUsers={this.state.maleUsers.length} users={this.state.users} inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} search={this.getSearchValue} reload={this.reload} />
+          <HomePage users={this.state.users} inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} search={this.getSearchValue} reload={this.reload} />
         </main>
         <Footer />
       </>

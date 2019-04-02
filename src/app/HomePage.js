@@ -10,13 +10,13 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            male: [],
-            female: []
-        }
+        this.state = {}
     }
 
     render() {
+
+        let maleUsers = 0;
+        let femaleUsers = 0;
 
         if (!this.props.users.length) {
             return <LoadingAnimation />
@@ -28,6 +28,14 @@ class HomePage extends Component {
                 return user.fullName.toLowerCase().includes(this.props.inputValue)
             })
                 .map((user, index) => {
+                    if (user.gender === 'male') {
+                        maleUsers++;
+                    }
+
+                    if (user.gender === 'female') {
+                        femaleUsers++;
+                    }
+
                     return (
                         <ListItem key={index} className='row' src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
                     )
@@ -35,7 +43,7 @@ class HomePage extends Component {
 
             return (
                 <>
-                    <Search search={this.props.search} maleUsers={this.props.maleUsers} />
+                    <Search search={this.props.search} users={this.props.users} maleUsers={maleUsers} femaleUsers={femaleUsers} />
                     {ListItems.length > 0 ? ListItems : <FailedSearch />}
                 </>
             )
@@ -47,6 +55,15 @@ class HomePage extends Component {
                 return user.fullName.toLowerCase().includes(this.props.inputValue)
             })
                 .map((user, index) => {
+
+                    if (user.gender === 'male') {
+                        maleUsers++;
+                    }
+
+                    if (user.gender === 'female') {
+                        femaleUsers++;
+                    }
+
                     return (
                         <UserCard key={index} src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
                     )
@@ -54,7 +71,7 @@ class HomePage extends Component {
 
             return (
                 <>
-                    <Search search={this.props.search} maleUsers={this.props.maleUsers} />
+                    <Search search={this.props.search} users={this.props.users} maleUsers={maleUsers} femaleUsers={femaleUsers} />
                     {GridItems.length > 0 ? GridItems : <FailedSearch />}
                 </>
             )
