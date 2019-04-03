@@ -25,7 +25,7 @@ class Header extends Component {
         return (
             <nav className='center'>
                 <div className="nav-wrapper">
-                    <h5 href="#!" className="brand-logo"><Link to='/'>Bit Persons</Link></h5>
+                    <h5 href="#!" className="brand-logo">Bit Persons</h5>
                     <ul className="right">
                         <li><Link to='/about'>About</Link></li>
                         <SwitchLayout onLayoutSwitch={this.props.onLayoutSwitch} isToggleOn={this.props.isToggleOn} />
