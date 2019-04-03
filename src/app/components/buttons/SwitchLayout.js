@@ -8,8 +8,9 @@ class SwitchLayout extends Component {
 
     render() {
         return (
-            <li onClick={this.props.onLayoutSwitch}><a href='#'><i className={this.props.isToggleOn ? "fas fa-list" : "fas fa-grip-horizontal"}></i></a></li>
-            // <button onClick={this.props.onLayoutSwitch}><i className={this.props.isToggleOn ? "fas fa-grip-horizontal" : "fas fa-list"}></i></button>
+            <button onClick={this.props.onLayoutSwitch}>
+                <i className={this.props.isToggleOn ? "fas fa-list" : "fas fa-grip-horizontal"}></i>
+            </button>
         );
     }
 }
