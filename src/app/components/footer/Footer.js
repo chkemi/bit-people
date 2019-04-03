@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-
+import { withRouter } from "react-router";
 
 class Footer extends Component {
     constructor(props) {
         super(props);
         this.state = {}
     }
-    render() {
 
+    getPassedTime() {
         const time = localStorage.getItem('time')
         let formattedTime = (Date.now() - time) / 1000 / 60;
 
@@ -21,13 +21,28 @@ class Footer extends Component {
             let bla = Math.floor((Date.now() - time) / 1000 / 60 / 60 / 24)
             formattedTime = `${bla} days ago`
         }
+        return formattedTime
+    }
+
+    render() {
+        if (this.props.location.pathname === '/about') {
+            return (
+                <footer className="page-footer">
+                    <div className="footer-copyright">
+                        <div className="container">
+                            {new Date().getFullYear()} Copyright BIT
+                    </div>
+                    </div>
+                </footer>
+            )
+        }
 
         return (
             <footer className="page-footer">
                 <div className="footer-copyright">
                     <div className="container">
                         {new Date().getFullYear()} Copyright BIT
-                        <span className='right'>Last update: {formattedTime}</span>
+                        <span className='right'>Last update: {this.getPassedTime()}</span>
                     </div>
                 </div>
             </footer>
@@ -35,4 +50,4 @@ class Footer extends Component {
     }
 }
 
-export default Footer;
+export default withRouter(Footer);
