@@ -13,8 +13,7 @@ class HomePage extends Component {
         this.state = {}
     }
 
-    render() {
-
+    display() {
         let maleUsers = 0;
         let femaleUsers = 0;
 
@@ -80,6 +79,10 @@ class HomePage extends Component {
                 </>
             )
         }
+    }
+
+    render() {
+        return this.display()
     }
 }
 
