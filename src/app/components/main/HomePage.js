@@ -27,14 +27,7 @@ class HomePage extends Component {
                 return user.fullName.toLowerCase().includes(this.props.inputValue)
             })
                 .map((user, index) => {
-                    if (user.gender === 'male') {
-                        maleUsers++;
-                    }
-
-                    if (user.gender === 'female') {
-                        femaleUsers++;
-                    }
-
+                    user.gender === 'male' ? maleUsers++ : femaleUsers++;
                     return (
                         <ListItem key={index} className='row' src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
                     )
@@ -54,15 +47,7 @@ class HomePage extends Component {
                 return user.fullName.toLowerCase().includes(this.props.inputValue)
             })
                 .map((user, index) => {
-
-                    if (user.gender === 'male') {
-                        maleUsers++;
-                    }
-
-                    if (user.gender === 'female') {
-                        femaleUsers++;
-                    }
-
+                    user.gender === 'male' ? maleUsers++ : femaleUsers++;
                     return (
                         <UserCard key={index} src={user.avatar} fullName={`${user.firstName} ${user.lastName}`} email={user.email} birthday={user.birthday} gender={user.gender} />
                     )
