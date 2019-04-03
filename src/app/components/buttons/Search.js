@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Stats from '../Stats';
+import Stats from './Stats';
 
 class Search extends Component {
     constructor(props) {

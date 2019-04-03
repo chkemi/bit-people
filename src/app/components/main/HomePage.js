@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import ListItem from './ListItem';
 import { UserCard } from "./UserCard";
-import './loading.css'
-import Search from "./buttons/Search";
-import LoadingAnimation from "./LoadingAnimation";
-import FailedSearch from "./FailedSearch";
+import '../loading.css'
+import Search from "../buttons/Search";
+import LoadingAnimation from "../LoadingAnimation";
+import FailedSearch from "../FailedSearch";
 
 class HomePage extends Component {
     constructor(props) {
@@ -72,7 +72,11 @@ class HomePage extends Component {
             return (
                 <>
                     <Search search={this.props.search} users={this.props.users} maleUsers={maleUsers} femaleUsers={femaleUsers} />
-                    {GridItems.length > 0 ? GridItems : <FailedSearch />}
+                    {GridItems.length > 0 ?
+                        <div className='row'>
+                            {GridItems}
+                        </div> :
+                        <FailedSearch />}
                 </>
             )
         }

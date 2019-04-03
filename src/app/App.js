@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import HomePage from './HomePage';
-import Header from './Header';
-import Footer from './Footer';
-import About from './About';
-import { reload, fetchUsers } from '../services/usersService';
+import HomePage from './components/main/HomePage';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import About from './components//main/About';
+import { checkAndFetchUsers } from '../services/usersService';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchUsers().then((users) => {
+    checkAndFetchUsers().then((users) => {
       this.setState({
         users,
       })
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   refresh = () => {
-    reload().then((users) => {
+    checkAndFetchUsers(true).then((users) => {
       this.setState({
         users,
       })

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import SwitchLayout from "./buttons/SwitchLayout";
-import Reload from "./buttons/Reload";
+import SwitchLayout from "../buttons/SwitchLayout";
+import Reload from "../buttons/Reload";
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
 
@@ -16,7 +16,7 @@ class Header extends Component {
             return (
                 <nav className='center'>
                     <div className="nav-wrapper">
-                        <a href="#!" className="brand-logo"><Link to='/'>Bit Persons</Link></a>
+                        <h5 href="#!" className="brand-logo"><Link to='/'>Bit Persons</Link></h5>
                     </div>
                 </nav>
             )
@@ -25,7 +25,7 @@ class Header extends Component {
         return (
             <nav className='center'>
                 <div className="nav-wrapper">
-                    <a href="#!" className="brand-logo"><Link to='/'>Bit Persons</Link></a>
+                    <h5 href="#!" className="brand-logo"><Link to='/'>Bit Persons</Link></h5>
                     <ul className="right">
                         <li><Link to='/about'>About</Link></li>
                         <SwitchLayout onLayoutSwitch={this.props.onLayoutSwitch} isToggleOn={this.props.isToggleOn} />
