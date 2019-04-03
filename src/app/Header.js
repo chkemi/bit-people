@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import SwitchLayout from "./buttons/SwitchLayout";
 import Reload from "./buttons/Reload";
+import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
+
 import './Header.css';
 
 class Header extends Component {
@@ -9,11 +12,22 @@ class Header extends Component {
         this.state = {}
     }
     render() {
+        if (this.props.location.pathname === '/about') {
+            return (
+                <nav className='center'>
+                    <div className="nav-wrapper">
+                        <a href="#!" className="brand-logo"><Link to='/'>Bit Persons</Link></a>
+                    </div>
+                </nav>
+            )
+        }
+
         return (
             <nav className='center'>
                 <div className="nav-wrapper">
-                    <a href="#!" className="brand-logo">Bit Persons</a>
+                    <a href="#!" className="brand-logo"><Link to='/'>Bit Persons</Link></a>
                     <ul className="right">
+                        <li><Link to='/about'>About</Link></li>
                         <SwitchLayout onLayoutSwitch={this.props.onLayoutSwitch} isToggleOn={this.props.isToggleOn} />
                         <Reload reload={this.props.reload} />
                     </ul>
@@ -23,4 +37,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default withRouter(Header);
