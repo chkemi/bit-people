@@ -2,7 +2,7 @@ class User {
     constructor(id, avatar, firstName, lastName, gender, email, birthday) {
 
         let date = new Date(birthday);
-        let formattedDate = `${date.getDay()}.${date.getMonth() + 1}.${date.getFullYear()}`
+        let formattedDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
 
         this.id = id;
         this.avatar = avatar;
