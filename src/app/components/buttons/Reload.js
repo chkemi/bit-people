@@ -8,7 +8,7 @@ class Reload extends Component {
     render() {
         return (
             <li onClick={this.props.reload}>
-                <a>
+                <a href=''>
                     <i className="fas fa-redo"></i>
                 </a>
             </li >

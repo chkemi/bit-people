@@ -26,7 +26,9 @@ class App extends Component {
     })
   }
 
-  onLayoutSwitch = () => {
+  onLayoutSwitch = (e) => {
+    e.preventDefault()
+
     this.setState((prevState) => {
       return {
         isToggleOn: !prevState.isToggleOn
@@ -36,12 +38,14 @@ class App extends Component {
   }
 
   getSearchValue = (e) => {
+    e.preventDefault()
     this.setState({
       inputValue: e.target.value
     });
   }
 
-  refresh = () => {
+  refresh = (e) => {
+    e.preventDefault()
     checkAndFetchUsers(true).then((users) => {
       this.setState({
         users,
