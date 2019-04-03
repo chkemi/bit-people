@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import HomePage from './HomePage';
 import Header from './Header';
 import Footer from './Footer';
+import About from './About';
 import { reload, fetchUsers } from '../services/usersService';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -52,7 +54,13 @@ class App extends Component {
       <>
         <Header isToggleOn={this.state.isToggleOn} onLayoutSwitch={this.onLayoutSwitch} reload={this.refresh} />
         <main className='row'>
-          <HomePage users={this.state.users} inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} search={this.getSearchValue} reload={this.reload} />
+          <Switch>
+            <Route exact path='/' render={() => {
+              return <HomePage users={this.state.users} inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} search={this.getSearchValue} reload={this.reload} />
+            }} />
+            <Route path='/' component={About} />
+            }}
+          </Switch>
         </main>
         <Footer />
       </>
