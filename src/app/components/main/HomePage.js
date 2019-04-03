@@ -22,7 +22,7 @@ class HomePage extends Component {
             return <LoadingAnimation />
         }
 
-        if (this.props.layout === 'list') {
+        if (!this.props.layout) {
 
             const ListItems = this.props.users.filter((user) => {
                 return user.fullName.toLowerCase().includes(this.props.inputValue)
@@ -49,7 +49,7 @@ class HomePage extends Component {
             )
         }
 
-        if (this.props.layout === 'grid') {
+        if (this.props.layout) {
 
             const GridItems = this.props.users.filter((user) => {
                 return user.fullName.toLowerCase().includes(this.props.inputValue)

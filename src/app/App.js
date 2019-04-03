@@ -57,7 +57,7 @@ class App extends Component {
           <Switch>
             <Route path='/about' component={About} />
             <Route exact path='/' render={() => {
-              return <HomePage users={this.state.users} inputValue={this.state.inputValue} layout={this.state.isToggleOn ? 'grid' : 'list'} search={this.getSearchValue} reload={this.reload} />
+              return <HomePage users={this.state.users} inputValue={this.state.inputValue} layout={this.state.isToggleOn ? true : false} search={this.getSearchValue} reload={this.reload} />
             }} />
           </Switch>
         </main>
